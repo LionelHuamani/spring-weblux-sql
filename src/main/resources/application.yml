@@ -1,0 +1,25 @@
+server:
+  port: 8082
+
+spring:
+  r2dbc:
+    url: r2dbc:postgresql://ep-broad-forest-adl7ok3z-pooler.c-2.us-east-1.aws.neon.tech/lionel_huamani_16?sslmode=require&channel_binding=require
+    username: neondb_owner
+    password: npg_ADRbqgm7sv1V
+  sql:
+    init:
+      mode: never # Crea la tabla automáticamente al iniciar
+      schema-locations: classpath:schema.sql # Archivo con la estructura de la tabla
+      data-locations: classpath:data.sql # Archivo con datos iniciales (opcional)
+  logging:
+    level:
+      org.springframework.r2dbc: DEBUG
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+
